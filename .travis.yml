@@ -11,7 +11,7 @@ deploy:
   access_key_id: $ACCESS_KEY_ID
   secret_access_key: $SECRET_ACCESS_KEY
   bucket: $BUCKET_NAME
-  skip_cleanup: true
+  skip_cleanup: false
   local_dir: dist
   cache_control: "no-cache,max-age=0"
   on:

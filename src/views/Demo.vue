@@ -7,3 +7,14 @@
     <p>Hahaha</p>
   </div>
 </template>
+
+<script>
+export default {
+  // mounted() {
+  //   console.log(this.$store.state.test);
+  // }
+  setup() {
+    console.log(12345);
+  }
+};
+</script>
