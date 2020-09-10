@@ -14,7 +14,8 @@ deploy:
   skip_cleanup: true
   local_dir: dist
   cache_control: "no-cache,max-age=0"
-
-branches:
-  only:
-    - master
+  on:
+    branch: master
+# branches:
+#   only:
+#     - master
