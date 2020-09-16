@@ -17,3 +17,4 @@ FROM nginx:latest
 RUN mkdir -p /app
 COPY --from=build-stage /test/dist/ /app
 COPY --from=build-stage /test/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
