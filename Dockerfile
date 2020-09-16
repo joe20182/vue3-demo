@@ -1,12 +1,9 @@
-FROM nginx:latest
+FROM node:latest
 
-# Install npm
-RUN apk add --update nodejs && apk add --update nodejs-npm
-# install project dependencies
-# WORKDIR /app/frontend
 RUN npm install
-# build app for production with minification
 RUN npm run build
+
+FROM nginx:latest
 
 RUN mkdir -p /app
 COPY dist/ /app
