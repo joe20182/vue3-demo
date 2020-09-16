@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:latest as build-stage
 
 # Create app directory
 WORKDIR /test
@@ -15,5 +15,5 @@ RUN npm run build
 FROM nginx:latest
 
 RUN mkdir -p /app
-COPY /test/dist/ /app
-COPY /test/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build-stage /test/dist/ /app
+COPY --from=build-stage /test/nginx.conf /etc/nginx/conf.d/default.conf
