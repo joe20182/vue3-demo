@@ -1,0 +1,7 @@
+steps:
+  - name: node
+    entrypoint: npm
+    args: ["install"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/fourth-tiger-279903/vue3-test-docker", "."]
+images: ["gcr.io/fourth-tiger-279903/vue3-test-docker"]
