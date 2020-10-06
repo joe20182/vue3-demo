@@ -14,7 +14,7 @@ export default {
   //   console.log(this.$store.state.test);
   // }
   setup() {
-    console.log(12345);
+    console.log(12345)
   }
-};
+}
 </script>
