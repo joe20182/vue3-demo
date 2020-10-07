@@ -1,20 +1,28 @@
 <template>
   <div>
-    <p>Demo</p>
-    <p>Demo</p>
-    <p>Demo</p>
-    <p>Hahaha</p>
-    <p>Hahaha</p>
+    <p>{{ msg }}</p>
+    <hr />
+    <p v-for="item in list" :key="item.id">{{ item.name }}</p>
   </div>
 </template>
 
 <script>
+import { onMounted, ref, reactive } from 'vue'
+
 export default {
-  // mounted() {
-  //   console.log(this.$store.state.test);
-  // }
   setup() {
-    console.log(12345)
+    console.log('setup created!'),
+      onMounted(() => {
+        console.log('mounted!')
+      })
+    const msg = ref('Hello Vue3')
+    const list = reactive([
+      { id: 1, name: 'one' },
+      { id: 2, name: 'two' },
+      { id: 3, name: 'three' }
+    ])
+
+    return { msg, list }
   }
 }
 </script>
