@@ -5,8 +5,33 @@
     <transition name="fade">
       <router-view />
     </transition>
+    <teleport to="#app-modal" :disabled="!isModalShow" v-if="isModalShow">
+      <Modal />
+    </teleport>
+    <button @click="popModal">Toggle Modal</button>
   </div>
 </template>
+
+<script>
+import Modal from '@/components/Modal'
+
+export default {
+  components: { Modal },
+  data() {
+    return {
+      isModalShow: false
+    }
+  },
+  methods: {
+    popModal() {
+      this.isModalShow = true
+      setTimeout(() => {
+        this.isModalShow = false
+      }, 3000)
+    }
+  }
+}
+</script>
 
 <style>
 #app {
