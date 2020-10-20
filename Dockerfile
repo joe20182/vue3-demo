@@ -9,6 +9,7 @@ RUN npm run build
 # Stage 2, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx
 # Copy building result and Nginx configuration
-RUN mkdir -p /app
-COPY --from=build-stage ./dist/ /app
-COPY --from=build-stage ./nginx.conf /etc/nginx/conf.d/default.conf
+# RUN mkdir -p /app
+# COPY --from=build-stage /app/dist/ /app
+COPY --from=build-stage /app/dist/ /usr/share/nginx/html
+COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
