@@ -10,5 +10,5 @@ RUN npm run build
 FROM nginx
 # Copy building result and Nginx configuration
 RUN mkdir -p /app
-COPY ./dist/ /app
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build-stage ./dist/ /app
+COPY --from=build-stage ./nginx.conf /etc/nginx/conf.d/default.conf
