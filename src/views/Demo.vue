@@ -3,11 +3,14 @@
     <p>{{ msg }}</p>
     <hr />
     <p v-for="item in list" :key="item.id">{{ convertName(item.name) }}</p>
+    <h3>{{ test }}</h3>
+    <h2>{{ testText }}</h2>
   </div>
 </template>
 
 <script>
 import { onMounted, ref, reactive } from 'vue'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   setup() {
@@ -27,6 +30,10 @@ export default {
     }
 
     return { msg, list, convertName }
+  },
+  computed: {
+    ...mapState(['test']),
+    ...mapGetters(['testText'])
   }
 }
 </script>
